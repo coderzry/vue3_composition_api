@@ -18,7 +18,10 @@ export default {
     }
   },
   setup() {
-    
+    /* 
+      ref 接收参数并将其包裹在一个带有 value property 的对象中返回，
+      然后可以使用该 property 访问或更改响应式变量的值 
+    */
     // counter变成一个ref的可响应式的引用
     let counter = ref(100)
     // 局部函数 
