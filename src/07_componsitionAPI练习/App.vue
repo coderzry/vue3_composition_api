@@ -9,10 +9,18 @@
 
 <script>
 import useCounter from './hooks/useCounter'
+import useTitle from './hooks/useTitle'
 export default {
   setup() {
-    
+    // counter
     const { counter, doubleCounter, increment, decrement } = useCounter()
+
+    // title
+    // useTitle hook会返回一个响应式的ref,后续我们可以在这个组件中继续修改title
+    const titleRef = useTitle('coderzry')
+    setTimeout(() => {
+      titleRef.value = 'kobe'
+    }, 2000)
 
     return {
       counter,
