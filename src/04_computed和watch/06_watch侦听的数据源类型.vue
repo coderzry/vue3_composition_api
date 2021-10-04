@@ -9,7 +9,7 @@
 import { ref, reactive, watch } from 'vue'
 export default {
   setup() {
-    const info = reactive({name: 'zry', age: 18})
+    const info = reactive({ name: 'zry', age: 18 })
 
     // 1.侦听watch时，传入getter函数
     // watch(() => info.name, (newvalue, oldValue) => {
@@ -27,20 +27,22 @@ export default {
     // })
 
     // 如果希望newValue和oldValue是一个普通的对象
-    watch(() => {
-      return {...info}
-    }, (newvalue, oldValue) => {
-      console.log('newValue:',newvalue, 'oldValue:', oldValue);
-    })
+    watch(
+      () => {
+        return { ...info }
+      },
+      (newvalue, oldValue) => {
+        console.log('newValue:', newvalue, 'oldValue:', oldValue)
+      }
+    )
 
     /* 
       情况二: ref对象获取到的newValue和oldValue都是value本身
     */
-   const name = ref('zry')
+    const name = ref('zry')
     watch(name, (newvalue, oldValue) => {
-      console.log('newValue:',newvalue, 'oldValue:', oldValue);
+      console.log('newValue:', newvalue, 'oldValue:', oldValue)
     })
-
 
     const changeData = () => {
       info.name = 'why'
@@ -49,12 +51,10 @@ export default {
 
     return {
       info,
-      changeData
+      changeData,
     }
-  }
+  },
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
