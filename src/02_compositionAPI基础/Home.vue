@@ -5,18 +5,18 @@
 </template>
 
 <script>
-import { reactive, ref, readonly } from 'vue';
+import { ref, readonly } from 'vue';
 export default {
   setup() {
     // 1.普通对象
-    const info1 = {name: 'zry'};
-    const readonlyInfo1 = readonly(info1);
+    // const info1 = {name: 'zry'};
+    // const readonlyInfo1 = readonly(info1);
 
     // 2.响应式对象
-    const info2 = reactive({
-      name: 'zry'
-    })
-    const readonlyInfo2 = readonly(info2)
+    // const info2 = reactive({
+    //   name: 'zry'
+    // })
+    // const readonlyInfo2 = readonly(info2)
 
     // 3.响应式对象ref
     const info3 = ref('zry');
