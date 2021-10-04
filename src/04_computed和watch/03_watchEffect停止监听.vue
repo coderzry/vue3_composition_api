@@ -23,7 +23,8 @@ export default {
     }
 
     /* 
-      立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数。
+      某些情况下，我们希望停止监听，可以获取watchEffect的返回值函数，调用即可
+      如changeAge函数中age.value大于25时调用返回值函数停止监听
     */
     const stop = watchEffect(() => {
       console.log('name:', name.value, 'age:', age.value);
