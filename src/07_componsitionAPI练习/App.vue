@@ -5,6 +5,9 @@
     <button @click="increment">counter+1</button>
     <button @click="decrement">counter-1</button>
 
+    <h2>{{ data }}</h2>
+    <button @click="changeData">changeData</button>
+
     <p class="content"></p>
 
     <div class="scroll">
@@ -20,11 +23,13 @@
 </template>
 
 <script>
-import useCounter from './hooks/useCounter'
-import useTitle from './hooks/useTitle'
-import useScrollPosition from './hooks/useScrollPosition'
-import useMousePosition from './hooks/useMousePosition'
-
+import { 
+  useCounter,
+  useTitle,
+  useScrollPosition,
+  useMousePosition,
+  useLocalStorage
+ } from './hooks'
 export default {
   setup() {
     // counter
@@ -43,6 +48,10 @@ export default {
     // 鼠标位置
     const { mouseX, mouseY } = useMousePosition()
 
+    // localStorage
+    const data = useLocalStorage('info')
+    const changeData = () => data.value = 'haha'
+
     return {
       counter,
       doubleCounter,
@@ -53,7 +62,10 @@ export default {
       scrollY,
 
       mouseX,
-      mouseY
+      mouseY,
+
+      data,
+      changeData
     }
   }
 }
