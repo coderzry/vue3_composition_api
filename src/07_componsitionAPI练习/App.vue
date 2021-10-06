@@ -11,6 +11,11 @@
       <div class="scroll-X">scrollX: {{scrollX}}</div>
       <div class="scroll-Y">scrollY: {{scrollY}}</div>
     </div>
+
+    <div class="mouse">
+      <div class="mouse-X">scrollX: {{mouseX}}</div>
+      <div class="mouse-Y">scrollY: {{mouseY}}</div>
+    </div>
   </div>
 </template>
 
@@ -18,6 +23,8 @@
 import useCounter from './hooks/useCounter'
 import useTitle from './hooks/useTitle'
 import useScrollPosition from './hooks/useScrollPosition'
+import useMousePosition from './hooks/useMousePosition'
+
 export default {
   setup() {
     // counter
@@ -33,13 +40,20 @@ export default {
     // 滚动位置
     const { scrollX, scrollY } = useScrollPosition()
 
+    // 鼠标位置
+    const { mouseX, mouseY } = useMousePosition()
+
     return {
       counter,
       doubleCounter,
       increment,
       decrement,
+
       scrollX,
-      scrollY
+      scrollY,
+
+      mouseX,
+      mouseY
     }
   }
 }
@@ -54,5 +68,10 @@ export default {
   position: fixed;
   right: 30px;
   bottom: 30px;
+}
+.mouse {
+  position: fixed;
+  right: 80px;
+  bottom: 80px;
 }
 </style>
