@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './08_setup顶层编写方式/App.vue'
+import App from './10_自定义指令/App.vue'
 
 const app = createApp(App)
 
@@ -15,5 +15,13 @@ const app = createApp(App)
 //     console.log('全局的created生命周期');
 //   }
 // })
+
+// 自定义全局指令
+app.directive('focus', {
+  mounted(el, bindings, vnode, preVnode) {
+    console.log('focus mounted');
+    el.focus()
+  },
+})
 
 app.mount('#app')
