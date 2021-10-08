@@ -1,47 +1,19 @@
 <template>
   <div>
-    <button v-if="counter < 2" v-zry.aaa.bbb="'coderzry'" @click="increment">当前计数：{{ counter }}</button>
+    <!-- 自定义指令参数 -->
+   <h2 v-format-time="'YYYY/MM/DD'">{{ timestamp }}</h2>
+   <h2 v-format-time>{{ timestamp }}</h2>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
 export default {
-  // 局部指令
-  directives: {
-    zry: {
-      created(el, bindings, vnode, preVnode) {
-        console.log('zry created', el, bindings, vnode, preVnode);
-        // 指令传入的参数可以通过bindings.value拿到
-        console.log(bindings.value);  // coderzry
-        // 指令的修饰符可以通过bindings.modifiers拿到，为一个对象
-        console.log(bindings.modifiers);  // {aaa: true, bbb: true}
-      },
-      beforeMount() {
-        console.log('zry beforeMount');
-      },
-      mounted() {
-        console.log('zry mounted');
-      },
-      beforeUpdate() {
-        console.log('zry beforeUpdate');
-      },
-      beforeUnmount() {
-        console.log('zry beforeUnmount');
-      },
-      unmounted() {
-        console.log('zry unmounted');
-      }
-    }
-  },
-
   setup() {
-    const counter = ref(0)
-    const increment = () => counter.value++
+    const timestamp = 1633705525
 
     return {
-      counter,
-      increment
+      timestamp
     }
   }
 }

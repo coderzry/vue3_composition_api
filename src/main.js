@@ -1,7 +1,10 @@
 import { createApp } from 'vue'
 import App from './10_自定义指令/App.vue'
+import registerDirectives from './directives'
 
 const app = createApp(App)
+
+registerDirectives(app)
 
 // 全局混入minxin
 // app.mixin({
