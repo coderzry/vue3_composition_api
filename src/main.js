@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './10_自定义指令/App.vue'
+import App from './11_teleport内置组件/App.vue'
 import registerDirectives from './directives'
 
 const app = createApp(App)
