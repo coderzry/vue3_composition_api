@@ -17,11 +17,27 @@
 </template>
 
 <script>
+import  { getCurrentInstance } from 'vue'
 import HelloWorld from './HelloWorld.vue'
 export default {
   components: {
     HelloWorld
-  }
+  },
+  // setup函数中需要这样获取全局变量
+  setup() {
+    const instance = getCurrentInstance()
+    console.log(instance.appContext.config.globalProperties.$name);
+  },
+  // 可以在生命周期中直接获取
+  mounted() {
+    console.log(this.$name);
+  },
+  methods: {
+    // 也可以在method中获取
+    foo() {
+      console.log(this.$name);
+    }
+  },
 }
 </script>
 

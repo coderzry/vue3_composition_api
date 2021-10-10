@@ -1,10 +1,15 @@
 import { createApp } from 'vue'
 import App from './11_teleport内置组件/App.vue'
 import registerDirectives from './directives'
+import pluginsObject from './12_plugins插件/plugins_object'
+import pluginsFunction from './12_plugins插件/plugins_function'
 
 const app = createApp(App)
 
 registerDirectives(app)
+
+app.use(pluginsObject)
+app.use(pluginsFunction)
 
 // 全局混入minxin
 // app.mixin({
